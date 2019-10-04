@@ -15,14 +15,32 @@ html,body {
     font-weight: 200;
   }
 
+  #birthdayPage {
+    position: relative;
+    height: 100%;
+  }
+
+  .wish-bg-image {
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("./assets/pic-1.jpeg");
+    opacity: 0.4;
+  }
+
+  .wish-bg-image img {
+    height: 500px;
+    width: 500px;
+  }
+
   #home {
-      height: 100vh;
-      background-size: cover;
-      background-image: url("./assets/pic-1.jpeg");
-      /* background: #222; */
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      position: absolute;
+      top: 150px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      padding-top: 150px;
   }
 
   .searchForm, .searchResultsForm {
@@ -208,6 +226,10 @@ html,body {
 }
 
 .searchResultsContentWrapper {
+  height: calc(100vh - 64px);
+}
+
+.searchResultsNotValidWrapper, .searchResultsValidContentWrapper {
   margin-left: 150px;
 }
 
@@ -518,6 +540,27 @@ html,body {
   cursor: pointer;
 }
 
+.autocomplete-wrapper:hover {
+  background-color: #eee;
+}
+
 .autocomplete-search-form {
   border-radius: 0px;
 }
+
+.suggestion-hover {
+  background: #eee;
+}
+
+
+/*****************MOBILE CSS*****/
+
+
+.gb-main {
+  min-height: 640px;
+}
+
+.m-outer {
+  padding-top: 68px;
+}
+

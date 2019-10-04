@@ -15,6 +15,13 @@ var exactMatch = false;
 var inputVal = "";
 var birthdayPage = bodyWrapper.find("#birthdayPage");
 
+
+if (window.screen.width < 600) {
+  $(".mobileContent").show();
+} else {
+  $(".desktopContent").show();
+}
+
 /*********************************************************************************/
 
 // If set to true, the user must press
@@ -331,8 +338,8 @@ var processSearchResponse = function(inputVal) {
 
 var loadBirthdayPage = function() {
   playAudio();
-  containerElm.hide();
-  birthdayPage.show();
+  //containerElm.hide();
+  birthdayPage.show().siblings().hide();
   poof();
   setTimeout(function() {
     startTypeAhead();
@@ -363,10 +370,7 @@ birthdayWishBtn.click(function() {
 
 searchResultPage.find(".wiki-info-wrapper").click(function() {
   console.log("Clicked on wiki info wrapper");
-  // $(".right-info").animate({
-  //   width: 'show',
-  //   easing: 'easein'
-  // }, "slow");
+  loadBirthdayPage();
 });
 
 searchResultPage.find(".info1-wrapper").click(function() {
@@ -384,8 +388,18 @@ searchFormPage.find(".autocomplete-wrapper").click(function() {
 
 searchInput.on('keypress',function(e) {
     if(e.which == 13) {
-        processSearchResponse(searchInput.val());
+      var issuggestionSelected = searchFormPage.find(".autocomplete-wrapper").hasClass("suggestion-hover") ? true : false;
+      var searchValue = issuggestionSelected ? "Shraddha Bhattad" : searchInput.val();
+      processSearchResponse(searchValue);
     }
+});
+
+searchFormPage.on('keydown', function(e) {
+  if (e.keyCode == 40) {
+    searchFormPage.find(".autocomplete-wrapper").addClass("suggestion-hover");
+  } else if (e.which != 13){
+    searchFormPage.find(".autocomplete-wrapper").removeClass("suggestion-hover");
+  }
 });
 
 searchInput.on('keyup',function(e) {
@@ -402,7 +416,7 @@ searchInput.on('keyup',function(e) {
 
 searchResultInput.on('keypress',function(e) {
     if(e.which == 13) {
-        processSearchResponse(searchResultInput.val());
+      processSearchResponse(searchResultInput.val());
     }
 });
 

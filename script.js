@@ -3,7 +3,7 @@ var containerElm = $("#googleContainer");
 
 var searchFormPage = containerElm.find("#searchFormPage");
 var searchResultPage = containerElm.find("#searchResultPage");
-
+var searchForm = containerElm.find(".searchForm");
 var searchInput = searchFormPage.find(".search-input");
 var searchResultInput = searchResultPage.find(".search-result-page-input");
 var searchButton = searchFormPage.find(".search-submit-btn");
@@ -363,10 +363,10 @@ birthdayWishBtn.click(function() {
 
 searchResultPage.find(".wiki-info-wrapper").click(function() {
   console.log("Clicked on wiki info wrapper");
-  $(".right-info").animate({
-    width: 'show',
-    easing: 'easein'
-  }, "slow");
+  // $(".right-info").animate({
+  //   width: 'show',
+  //   easing: 'easein'
+  // }, "slow");
 });
 
 searchResultPage.find(".info1-wrapper").click(function() {
@@ -375,13 +375,27 @@ searchResultPage.find(".info1-wrapper").click(function() {
 
 
 searchResultPage.find(".suggested-txt").click(function() {
-    processSearchResponse("shraddha")
+    processSearchResponse("shraddha");
+});
+
+searchFormPage.find(".autocomplete-wrapper").click(function() {
+  processSearchResponse("shraddha");
 });
 
 searchInput.on('keypress',function(e) {
     if(e.which == 13) {
         processSearchResponse(searchInput.val());
     }
+});
+
+searchInput.on('keyup',function(e) {
+  if (validSearchTerms.indexOf(e.target.value.toLowerCase()) > -1 || e.target.value.length === 0) {
+    searchFormPage.find(".autocomplete-wrapper").hide();
+    searchForm.removeClass("autocomplete-search-form");
+  } else {
+    searchFormPage.find(".autocomplete-wrapper").show();
+    searchForm.addClass("autocomplete-search-form");
+  }
 });
 
 

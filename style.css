@@ -28,7 +28,6 @@ html,body {
   .searchForm, .searchResultsForm {
     background: #fff;
     display: flex;
-    border-radius: 8px;
     border: 1px solid #dfe1e5;
     box-shadow: none;
     border-radius: 24px;
@@ -44,6 +43,11 @@ html,body {
   .searchElmsWrapper {
     flex: 1;
     display: flex;
+    padding: 5px 8px 0 16px;
+    padding-left: 14px;
+  }
+
+  .searchElmsWrapperAutocomplete {
     padding: 5px 8px 0 16px;
     padding-left: 14px;
   }
@@ -502,4 +506,18 @@ html,body {
 
 .info1-wrapper {
   cursor: pointer;
+}
+
+.autocomplete-wrapper {
+  display: flex;
+  width: 582px;
+  height: 44px;
+  margin: 0 auto;
+  border: 1px solid #dfe1e5;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.autocomplete-search-form {
+  border-radius: 0px;
 }

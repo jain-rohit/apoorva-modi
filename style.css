@@ -155,10 +155,6 @@ html,body {
   text-align: center;
 }
 
-/* .searchResultFormWrapper {
-  display: flex;
-} */
-
 .search-nav-tab-item {
   padding: 16px 12px 12px 10px;
 }
@@ -578,16 +574,72 @@ html,body {
 /*****************MOBILE CSS*****/
 
 
-.gb-main {
-  min-height: 640px;
-}
-
-.m-outer {
+.m-brand-img {
   padding-top: 68px;
 }
 
-@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
-  .desktopContent {
-    display: none;
-  }
+.m-gsearch-wrapper {
+  margin: 8px;
 }
+
+form#tsf {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 736px;
+  overflow: hidden;
+  width: auto;
+}
+
+.A7Yvie {
+  background: none;
+  position: relative;
+  border-radius: 20px;
+}
+
+.zGVn2e {
+  display: flex;
+  z-index: 3;
+  border: 1px solid #DFE1E5;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.SDkEP {
+  flex: 1;
+  display: flex;
+  padding: 7px 0 6px;
+}
+
+.a4bIc {
+  display: flex;
+  flex: 1;
+}
+
+.dRYYxd {
+  display: flex;
+  flex: 0 0 auto;
+  margin: -7px 0;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.Tg7LZd {
+  display: flex;
+  border-radius: 0 20px 20px 0;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: #3b78e7;
+  border: 1px solid #3367d6;
+  margin: -1px;
+  flex: 0 0 auto;
+}
+
+.gBCQ5d {
+  background: none;
+  color: #fff;
+  height: 24px;
+  width: 24px;
+  margin: auto;
+}
+
+

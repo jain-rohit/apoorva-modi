@@ -16,11 +16,11 @@ var inputVal = "";
 var birthdayPage = bodyWrapper.find("#birthdayPage");
 
 
-// if (window.screen.width < 600) {
-//   $(".mobileContent").show();
-// } else {
-//   $(".desktopContent").show();
-// }
+if (window.screen.width < 600) {
+  $(".mobileContent").show();
+} else {
+  $(".desktopContent").show();
+}
 
 /*********************************************************************************/
 
@@ -466,3 +466,48 @@ searchResultPage.find(".videos").click(function() {
 
 populateImages();
 
+
+/*****************************Mobile JS */
+var mContainerElm = $(".m-googleContainer");
+var mSearchFormPage =  mContainerElm.find(".m-searchFormPage");
+var mSearchInput = mSearchFormPage.find(".m-search-input");
+var mSearchSubmitBtn = mSearchFormPage.find(".m-search-submit-btn");
+var mSearchResultPage = containerElm.find("#m-searchResultPage");
+var mSearchResultInput = mSearchResultPage.find(".m-search-result-page-input");
+
+mSearchInput.on('keypress',function(e) {
+  if(e.which == 13) {
+    mProcessSearchResponse(e.target.value);
+  }
+});
+
+var mShowSearchResultsPage = function(inputVal) {
+  mSearchResultInput.val(inputVal);
+  mSearchResultPage.show().siblings().hide();
+  mSearchResultPage.find(".searchLoader").show();
+  mSearchResultPage.find(".searchResultsValidContentWrapper").hide();
+  mSearchResultPage.find(".searchResultsNotValidWrapper").hide();
+  setTimeout(function() {
+      searchResultPage.find(".searchLoader").hide();
+      if (exactMatch) {
+          searchResultPage.find(".searchResultsValidContentWrapper").show().siblings().hide();
+          searchResultPage.find(".all").addClass("tab-selected").siblings().removeClass("tab-selected");
+          searchResultPage.find(".all-results").show().siblings().hide();   
+      } else {
+          searchResultPage.find(".searched-text").html(inputVal);
+          searchResultPage.find(".searchResultsNotValidWrapper").show().siblings().hide();
+      }
+      }, 500);
+};
+
+var mProcessSearchResponse = function(inputVal) {
+  if (inputVal === "") {
+    return;
+  }
+  if (validSearchTerms.indexOf(inputVal.toLowerCase()) > -1) {
+      exactMatch = true;
+  } else {
+      exactMatch = false;
+  }
+  mShowSearchResultsPage(inputVal);
+};

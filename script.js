@@ -16,11 +16,11 @@ var inputVal = "";
 var birthdayPage = bodyWrapper.find("#birthdayPage");
 
 
-if (window.screen.width < 600) {
-  $(".mobileContent").show();
-} else {
-  $(".desktopContent").show();
-}
+// if (window.screen.width < 600) {
+//   $(".mobileContent").show();
+// } else {
+//   $(".desktopContent").show();
+// }
 
 /*********************************************************************************/
 

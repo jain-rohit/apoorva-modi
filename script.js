@@ -369,7 +369,6 @@ birthdayWishBtn.click(function() {
 });
 
 searchResultPage.find(".wiki-info-wrapper").click(function() {
-  console.log("Clicked on wiki info wrapper");
   loadBirthdayPage();
 });
 
@@ -379,7 +378,7 @@ searchResultPage.find(".info1-wrapper").click(function() {
 
 
 searchResultPage.find(".suggested-txt").click(function() {
-    processSearchResponse("shraddha");
+    processSearchResponse("Shraddha Bhattad");
 });
 
 searchFormPage.find(".autocomplete-wrapper").click(function() {
@@ -472,8 +471,9 @@ var mContainerElm = $(".m-googleContainer");
 var mSearchFormPage =  mContainerElm.find(".m-searchFormPage");
 var mSearchInput = mSearchFormPage.find(".m-search-input");
 var mSearchSubmitBtn = mSearchFormPage.find(".m-search-submit-btn");
-var mSearchResultPage = containerElm.find("#m-searchResultPage");
+var mSearchResultPage = mContainerElm.find(".m-searchResultPage");
 var mSearchResultInput = mSearchResultPage.find(".m-search-result-page-input");
+var mBirthdayPage = bodyWrapper.find("#m-birthdayPage");
 
 mSearchInput.on('keypress',function(e) {
   if(e.which == 13) {
@@ -481,23 +481,89 @@ mSearchInput.on('keypress',function(e) {
   }
 });
 
+mSearchResultPage.find(".m-wiki-header-wrapper").click(function() {
+  mLoadBirthdayPage();
+});
+
+mSearchResultPage.find(".m-suggested-txt").click(function() {
+  mProcessSearchResponse("Shraddha Bhattad");
+});
+
+mSearchResultPage.find(".main-img-wrapper").click(function() {
+  mShowImages();
+});
+
+mSearchResultPage.find(".images").click(function() {
+  mShowImages();
+});
+
+mSearchResultPage.find(".all").click(function() {
+  mSearchResultPage.find(".all").addClass("m-tab-selected");
+  mSearchResultPage.find(".images").removeClass("m-tab-selected");
+  mSearchResultPage.find(".videos").removeClass("m-tab-selected");
+  mSearchResultPage.find(".m-all-results").show().siblings().hide();
+});
+
+var mPopulateImages = function() {
+  var mImgResultsPage =  mSearchResultPage.find(".m-images-results");
+  var mImgWrapperTemplate = mImgResultsPage.find(".m-img-wrapper-template");
+  $.each(imagesArr, function (index, imgName) {
+      var imgDiv = mImgWrapperTemplate.clone().removeClass("m-img-wrapper-template").addClass("m-img-wrapper").insertBefore(mImgWrapperTemplate).show();
+      var imgPath = "./assets/" + imgName;
+      imgDiv.find(".imgElm")[0].src = imgPath;
+  });
+};
+
+var mShowImages = function() {
+  mSearchResultPage.find(".images").addClass("m-tab-selected")
+  mSearchResultPage.find(".all").removeClass("m-tab-selected");
+  mSearchResultPage.find(".videos").removeClass("m-tab-selected");
+  mSearchResultPage.find(".m-images-results").show().siblings().hide();
+};
+
 var mShowSearchResultsPage = function(inputVal) {
   mSearchResultInput.val(inputVal);
   mSearchResultPage.show().siblings().hide();
-  mSearchResultPage.find(".searchLoader").show();
-  mSearchResultPage.find(".searchResultsValidContentWrapper").hide();
-  mSearchResultPage.find(".searchResultsNotValidWrapper").hide();
+  mSearchResultPage.find(".m-searchLoader").show();
+  mSearchResultPage.find(".m-searchResultsValidContentWrapper").hide();
+  mSearchResultPage.find(".m-searchResultsNotValidWrapper").hide();
   setTimeout(function() {
-      searchResultPage.find(".searchLoader").hide();
+    mSearchResultPage.find(".m-searchLoader").hide();
       if (exactMatch) {
-          searchResultPage.find(".searchResultsValidContentWrapper").show().siblings().hide();
-          searchResultPage.find(".all").addClass("tab-selected").siblings().removeClass("tab-selected");
-          searchResultPage.find(".all-results").show().siblings().hide();   
+          mSearchResultPage.find(".m-searchResultsValidContentWrapper").show().siblings().hide();
+          mSearchResultPage.find(".all").addClass("m-tab-selected").siblings().removeClass("m-tab-selected");
+          mSearchResultPage.find(".m-all-results").show().siblings().hide();   
       } else {
-          searchResultPage.find(".searched-text").html(inputVal);
-          searchResultPage.find(".searchResultsNotValidWrapper").show().siblings().hide();
+          mSearchResultPage.find(".searched-text").html(inputVal);
+          mSearchResultPage.find(".m-searchResultsNotValidWrapper").show().siblings().hide();
       }
-      }, 500);
+    }, 500);
+};
+
+var mStartTypeAhead = function() {
+  var elements = document.getElementsByClassName('m-txt-rotate');
+  for (var i=0; i<elements.length; i++) {
+    var toRotate = elements[i].getAttribute('data-rotate');
+    var period = elements[i].getAttribute('data-period');
+    if (toRotate) {
+      new TxtRotate(elements[i], JSON.parse(toRotate), period);
+    }
+  }
+  // INJECT CSS
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".m-txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+  document.body.appendChild(css);
+};
+
+var mLoadBirthdayPage = function() {
+  playAudio();
+  //containerElm.hide();
+  mBirthdayPage.show().siblings().hide();
+  poof();
+  setTimeout(function() {
+    mStartTypeAhead();
+  }, 3000);
 };
 
 var mProcessSearchResponse = function(inputVal) {
@@ -511,3 +577,5 @@ var mProcessSearchResponse = function(inputVal) {
   }
   mShowSearchResultsPage(inputVal);
 };
+
+mPopulateImages();

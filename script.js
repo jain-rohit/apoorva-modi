@@ -8,6 +8,7 @@ var searchInput = searchFormPage.find(".search-input");
 var searchResultInput = searchResultPage.find(".search-result-page-input");
 var searchButton = searchFormPage.find(".search-submit-btn");
 var birthdayWishBtn = searchFormPage.find(".birthdaywish-btn");
+var audioElm = document.getElementById("myAudio");
 
 var validSearchTerms = ["shraddha", "shraddha bhattad", "shraddhabhattad"];
 var imagesArr = ["pic-2.jpeg", "pic-3.jpg", "pic-4.jpeg", "pic-5.jpeg", "pic-6.jpg", "pic-12.jpeg", "pic-13.jpeg", "pic-14.jpeg", "pic-15.jpeg"];
@@ -355,6 +356,7 @@ searchResultPage.find(".birthday").click(function() {
 });
 
 searchResultPage.find("#result-page-logo").click(function() {
+  audioElm.onpause();
   searchFormPage.find(".autocomplete-wrapper").hide();
   searchInput.val("");
   searchResultInput.val("");
@@ -425,6 +427,7 @@ searchInput.on('keyup',function(e) {
 
 searchResultInput.on('keypress',function(e) {
     if(e.which == 13) {
+      audioElm.pause();
       processSearchResponse(searchResultInput.val());
     }
 });
@@ -459,19 +462,15 @@ var showSearchResultsPage = function(inputVal) {
 };
 
 searchResultPage.find(".all").click(function() {
+    audioElm.pause();
     searchResultPage.find(".all").addClass("tab-selected").siblings().removeClass("tab-selected");
     searchResultPage.find(".all-results").show().siblings().hide();
 });
 
 searchResultPage.find(".images").click(function() {
+  audioElm.pause();
   showImages();
 });
-
-searchResultPage.find(".videos").click(function() {
-    searchResultPage.find(".images").addClass("tab-selected").siblings().removeClass("tab-selected");
-    searchResultPage.find(".videos-results").show().siblings().hide();
-});
-
 
 populateImages();
 

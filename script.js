@@ -354,6 +354,14 @@ searchResultPage.find(".birthday").click(function() {
   loadBirthdayPage();
 });
 
+searchResultPage.find("#result-page-logo").click(function() {
+  searchFormPage.find(".autocomplete-wrapper").hide();
+  searchInput.val("");
+  searchResultInput.val("");
+  searchFormPage.show().siblings().hide();
+  searchInput.focus();
+});
+
 searchButton.click(function() {
     processSearchResponse(searchInput.val());
 });
@@ -524,6 +532,18 @@ mSearchResultPage.find(".main-img-wrapper").click(function() {
 
 mSearchResultPage.find(".images").click(function() {
   mShowImages();
+});
+
+mSearchResultPage.find(".m-birthday-date").click(function() {
+  mLoadBirthdayPage();
+});
+
+mSearchResultPage.find(".m-search-result-brand-img").click(function() {
+  mSearchFormPage.find(".m-autocomplete-wrapper").hide();
+  mSearchInput.val("");
+  mSearchResultInput.val("");
+  mSearchFormPage.show().siblings().hide();
+  mSearchInput.focus();
 });
 
 mSearchResultInput.on('keypress',function(e) {

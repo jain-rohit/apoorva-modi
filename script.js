@@ -475,6 +475,10 @@ var mSearchResultPage = mContainerElm.find(".m-searchResultPage");
 var mSearchResultInput = mSearchResultPage.find(".m-search-result-page-input");
 var mBirthdayPage = bodyWrapper.find("#m-birthdayPage");
 
+mSearchFormPage.find(".m-search-submit-btn").click(function() {
+  mProcessSearchResponse(mSearchInput.val());
+});
+
 mSearchInput.on('keypress',function(e) {
   if(e.which == 13) {
     mProcessSearchResponse(e.target.value);

@@ -970,3 +970,51 @@ h1.m-animated-txt {
 .m-birthday-date {
   color: #1967D2;
 }
+
+.home-page-extras {
+  display: flex;
+  margin-top: 6px;
+}
+
+.extras-content {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0 12px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 14px;
+  color: rgba(0, 0, 0, .54);
+  margin: 0 auto;
+}
+
+.extra-svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+.google-offered-in {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.google-offered-in-txt {
+  display: inline-block;
+  margin: 0 2px;
+  white-space: nowrap;
+  line-height: 28px;
+}
+
+.languages-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.language-txt {
+  color: #1967D2;
+  padding: 0px 8px;
+}

@@ -485,8 +485,9 @@ var mSearchSubmitBtn = mSearchFormPage.find(".m-search-submit-btn");
 var mSearchResultPage = mContainerElm.find(".m-searchResultPage");
 var mSearchResultInput = mSearchResultPage.find(".m-search-result-page-input");
 var mBirthdayPage = bodyWrapper.find("#m-birthdayPage");
+var mSearchTabResults = mSearchResultPage.find(".m-search-tab-results");
 var leftImagesArr = ["pic-6.jpg", "pic-12.jpeg", "pic-13.jpeg", "pic-14.jpeg", "pic-15.jpeg"];
-var rightImagesArr = ["pic-2.jpeg", "pic-3.jpg", "pic-4.jpeg", "pic-5.jpeg"]
+var rightImagesArr = ["pic-2.jpeg", "pic-3.jpg", "pic-4.jpeg", "pic-5.jpeg"];
 
 $(".m-autocomplete-wrapper").width(mSearchForm.width());
 
@@ -553,10 +554,14 @@ mSearchResultInput.on('keypress',function(e) {
 });
 
 mSearchResultPage.find(".all").click(function() {
-  mSearchResultPage.find(".all").addClass("m-tab-selected");
-  mSearchResultPage.find(".images").removeClass("m-tab-selected");
-  mSearchResultPage.find(".videos").removeClass("m-tab-selected");
-  mSearchResultPage.find(".m-all-results").show().siblings().hide();
+  mSearchTabResults.find(".m-searchLoader").show().siblings().hide();
+  setTimeout(function() {
+    mSearchTabResults.find(".m-searchLoader").hide();
+    mSearchResultPage.find(".all").addClass("m-tab-selected");
+    mSearchResultPage.find(".images").removeClass("m-tab-selected");
+    mSearchResultPage.find(".videos").removeClass("m-tab-selected");
+    mSearchResultPage.find(".m-all-results").show().siblings().hide();
+  }, 500);
 });
 
 var populateLeftImages = function() {
@@ -585,10 +590,15 @@ var mPopulateImages = function() {
 };
 
 var mShowImages = function() {
-  mSearchResultPage.find(".images").addClass("m-tab-selected")
-  mSearchResultPage.find(".all").removeClass("m-tab-selected");
-  mSearchResultPage.find(".videos").removeClass("m-tab-selected");
-  mSearchResultPage.find(".m-images-results").show().siblings().hide();
+  mSearchTabResults.find(".m-searchLoader").show().siblings().hide();
+  setTimeout(function() {
+    mSearchTabResults.find(".m-searchLoader").hide();
+    mSearchResultPage.find(".images").addClass("m-tab-selected")
+    mSearchResultPage.find(".all").removeClass("m-tab-selected");
+    mSearchResultPage.find(".videos").removeClass("m-tab-selected");
+    mSearchResultPage.find(".m-images-results").show().siblings().hide();
+  }, 500);
+  
 };
 
 var mShowSearchResultsPage = function(inputVal) {

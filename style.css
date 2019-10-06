@@ -65,7 +65,7 @@ html,body {
     padding-left: 14px;
   }
 
-  .searchElmsWrapperAutocomplete {
+  .searchElmsWrapperAutocomplete, .m-searchElmsWrapperAutocomplete {
     padding: 5px 8px 0 16px;
     padding-left: 14px;
   }
@@ -531,22 +531,31 @@ html,body {
   cursor: pointer;
 }
 
-.autocomplete-wrapper {
+.autocomplete-wrapper, .m-autocomplete-wrapper {
   display: flex;
-  width: 582px;
-  height: 44px;
   margin: 0 auto;
   border: 1px solid #dfe1e5;
   padding-top: 10px;
   cursor: pointer;
 }
 
-.autocomplete-wrapper:hover {
+.autocomplete-wrapper {
+  width: 582px;
+  height: 44px;
+}
+
+.m-autocomplete-wrapper {
+  width: 328px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.autocomplete-wrapper:hover, .m-autocomplete-wrapper:hover {
   background-color: #eee;
 }
 
 .autocomplete-search-form {
-  border-radius: 0px;
+  border-radius: 0px !important;
 }
 
 .suggestion-hover {
@@ -900,4 +909,31 @@ h1.m-animated-txt {
   font-size: 1.75em; 
   color: black;
   font-weight: 200;
+}
+
+.m-autocomplete-suggestion {
+  display: flex;
+  flex-direction: column;
+}
+
+.m-autocomplete-name {
+  display: flex;
+  font-size: 16px;
+  color: #212121;
+  flex: 1;
+  align-items: center;
+  word-break: break-word;
+}
+
+.m-autocomplete-prof {
+  display: flex;
+  font-size: 12px;
+  color: #767676;
+  flex: 1;
+  align-items: center;
+}
+
+.m-autocomplete-img {
+  margin-right: 7px;
+  margin-bottom: 7px;
 }

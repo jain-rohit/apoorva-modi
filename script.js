@@ -469,6 +469,7 @@ populateImages();
 /*****************************Mobile JS */
 var mContainerElm = $(".m-googleContainer");
 var mSearchFormPage =  mContainerElm.find(".m-searchFormPage");
+var mSearchForm =  mContainerElm.find(".m-searchForm");
 var mSearchInput = mSearchFormPage.find(".m-search-input");
 var mSearchSubmitBtn = mSearchFormPage.find(".m-search-submit-btn");
 var mSearchResultPage = mContainerElm.find(".m-searchResultPage");
@@ -479,9 +480,27 @@ mSearchFormPage.find(".m-search-submit-btn").click(function() {
   mProcessSearchResponse(mSearchInput.val());
 });
 
+mSearchFormPage.find(".m-autocomplete-wrapper").click(function() {
+  mProcessSearchResponse("Shraddha Bhattad");
+});
+
+mSearchResultPage.find(".m-search-submit-btn").click(function() {
+  mProcessSearchResponse(mSearchResultInput.val());
+});
+
 mSearchInput.on('keypress',function(e) {
   if(e.which == 13) {
     mProcessSearchResponse(e.target.value);
+  }
+});
+
+mSearchInput.on('keyup',function(e) {
+  if (validSearchTerms.indexOf(e.target.value.toLowerCase()) > -1 || e.target.value.length === 0) {
+    mSearchFormPage.find(".m-autocomplete-wrapper").hide();
+    mSearchForm.removeClass("autocomplete-search-form");
+  } else {
+    mSearchFormPage.find(".m-autocomplete-wrapper").show();
+    mSearchForm.addClass("autocomplete-search-form");
   }
 });
 
@@ -499,6 +518,12 @@ mSearchResultPage.find(".main-img-wrapper").click(function() {
 
 mSearchResultPage.find(".images").click(function() {
   mShowImages();
+});
+
+mSearchResultInput.on('keypress',function(e) {
+  if(e.which == 13) {
+    mProcessSearchResponse(mSearchResultInput.val());
+  }
 });
 
 mSearchResultPage.find(".all").click(function() {

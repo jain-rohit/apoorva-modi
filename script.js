@@ -338,7 +338,6 @@ var processSearchResponse = function(inputVal) {
 
 var loadBirthdayPage = function() {
   playAudio();
-  //containerElm.hide();
   birthdayPage.show().siblings().hide();
   poof();
   setTimeout(function() {
@@ -365,6 +364,9 @@ var playAudio = function() {
 };
 
 birthdayWishBtn.click(function() {
+  searchFormPage.hide();
+  searchResultPage.show();
+  searchResultInput.val("Shraddha Bhattad");
   loadBirthdayPage();
 });
 

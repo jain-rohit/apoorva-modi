@@ -10,7 +10,7 @@ var searchButton = searchFormPage.find(".search-submit-btn");
 var birthdayWishBtn = searchFormPage.find(".birthdaywish-btn");
 
 var validSearchTerms = ["shraddha", "shraddha bhattad", "shraddhabhattad"];
-var imagesArr = ["pic-1.jpeg", "pic-2.jpeg", "pic-3.jpg", "pic-4.jpeg", "pic-5.jpeg", "pic-6.jpg", "pic-7.jpg"];
+var imagesArr = ["pic-2.jpeg", "pic-3.jpg", "pic-4.jpeg", "pic-5.jpeg", "pic-6.jpg", "pic-12.jpeg", "pic-13.jpeg", "pic-14.jpeg", "pic-15.jpeg"];
 var exactMatch = false;
 var inputVal = "";
 var birthdayPage = bodyWrapper.find("#birthdayPage");
@@ -475,6 +475,8 @@ var mSearchSubmitBtn = mSearchFormPage.find(".m-search-submit-btn");
 var mSearchResultPage = mContainerElm.find(".m-searchResultPage");
 var mSearchResultInput = mSearchResultPage.find(".m-search-result-page-input");
 var mBirthdayPage = bodyWrapper.find("#m-birthdayPage");
+var leftImagesArr = ["pic-6.jpg", "pic-12.jpeg", "pic-13.jpeg", "pic-14.jpeg", "pic-15.jpeg"];
+var rightImagesArr = ["pic-2.jpeg", "pic-3.jpg", "pic-4.jpeg", "pic-5.jpeg"]
 
 $(".m-autocomplete-wrapper").width(mSearchForm.width());
 
@@ -535,14 +537,29 @@ mSearchResultPage.find(".all").click(function() {
   mSearchResultPage.find(".m-all-results").show().siblings().hide();
 });
 
-var mPopulateImages = function() {
+var populateLeftImages = function() {
   var mImgResultsPage =  mSearchResultPage.find(".m-images-results");
-  var mImgWrapperTemplate = mImgResultsPage.find(".m-img-wrapper-template");
-  $.each(imagesArr, function (index, imgName) {
+  var mImgWrapperTemplate = mImgResultsPage.find(".m-left-img-wrapper .m-img-wrapper-template");
+  $.each(leftImagesArr, function (index, imgName) {
       var imgDiv = mImgWrapperTemplate.clone().removeClass("m-img-wrapper-template").addClass("m-img-wrapper").insertBefore(mImgWrapperTemplate).show();
       var imgPath = "./assets/" + imgName;
       imgDiv.find(".imgElm")[0].src = imgPath;
   });
+};
+
+var populateRightImages = function() {
+  var mImgResultsPage =  mSearchResultPage.find(".m-images-results");
+  var mImgWrapperTemplate = mImgResultsPage.find(".m-right-img-wrapper .m-img-wrapper-template");
+  $.each(rightImagesArr, function (index, imgName) {
+      var imgDiv = mImgWrapperTemplate.clone().removeClass("m-img-wrapper-template").addClass("m-img-wrapper").insertBefore(mImgWrapperTemplate).show();
+      var imgPath = "./assets/" + imgName;
+      imgDiv.find(".imgElm")[0].src = imgPath;
+  });
+};
+
+var mPopulateImages = function() {
+  populateLeftImages();
+  populateRightImages();
 };
 
 var mShowImages = function() {

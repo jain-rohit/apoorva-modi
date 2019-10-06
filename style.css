@@ -1018,3 +1018,8 @@ h1.m-animated-txt {
   color: #1967D2;
   padding: 0px 8px;
 }
+
+.made-with-love {
+  text-align: center;
+  background: #eee;
+}

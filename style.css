@@ -545,7 +545,6 @@ html,body {
 }
 
 .m-autocomplete-wrapper {
-  width: 328px;
   justify-content: space-between;
   align-items: center;
 }

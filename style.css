@@ -1023,6 +1023,7 @@ h1.m-animated-txt {
   text-align: center;
   background: #eee;
   font-size: 12px;
+  height: 25px;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -1036,4 +1037,24 @@ h1.m-animated-txt {
 }
 :-moz-placeholder { /* Firefox 18- */
   color: #a9a9a9;
+}
+
+.fa {
+  color: #E90606;
+  margin: 0 4px;
+  font-size: 10px;
+  animation: pound .35s infinite;
+  -webkit-animation: pound .35s infinite;
+}
+
+@keyframes pound {
+  to {
+    transform: scale(1.25);
+  } 
+}
+
+@-webkit-keyframes pound {
+  to {
+    transform: scale(1.25);
+  } 
 }

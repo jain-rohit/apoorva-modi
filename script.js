@@ -9,6 +9,7 @@ var searchResultInput = searchResultPage.find(".search-result-page-input");
 var searchButton = searchFormPage.find(".search-submit-btn");
 var birthdayWishBtn = searchFormPage.find(".birthdaywish-btn");
 var audioElm = document.getElementById("myAudio");
+audioElm.loop = true;
 var validSearchTerms = ["shraddha", "shraddha bhattad", "shraddhabhattad"];
 var imagesArr = ["pic-12.jpeg", "pic-13.jpeg", "pic-15.jpeg", "pic-19.jpg", "pic-20.jpg", "pic-17.jpeg", "pic-16.jpg", "pic-14.jpeg", "pic-6.jpg", "pic-21.jpg"];
 var exactMatch = false;

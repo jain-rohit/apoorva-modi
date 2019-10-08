@@ -495,7 +495,7 @@ var mBirthdayPage = bodyWrapper.find("#m-birthdayPage");
 var mSearchResultsContentWrapper = mSearchResultPage.find(".m-searchResultsContentWrapper");
 var mSearchTabResults = mSearchResultPage.find(".m-search-tab-results");
 var leftImagesArr = ["pic-6.jpg", "pic-12.jpeg", "pic-13.jpeg", "pic-14.jpeg", "pic-15.jpeg"];
-var rightImagesArr = ["pic-2.jpeg", "pic-3.jpg", "pic-4.jpeg", "pic-5.jpeg", "pic-16.jpg"];
+var rightImagesArr = ["pic-17.jpeg", "pic-2.jpeg", "pic-3.jpg", "pic-4.jpeg", "pic-5.jpeg", "pic-16.jpg"];
 
 $(".m-autocomplete-wrapper").width(mSearchForm.width());
 

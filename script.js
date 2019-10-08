@@ -10,11 +10,20 @@ var searchButton = searchFormPage.find(".search-submit-btn");
 var birthdayWishBtn = searchFormPage.find(".birthdaywish-btn");
 var audioElm = document.getElementById("myAudio");
 var validSearchTerms = ["shraddha", "shraddha bhattad", "shraddhabhattad"];
-var imagesArr = ["pic-2.jpeg", "pic-3.jpg", "pic-4.jpeg", "pic-5.jpeg", "pic-6.jpg", "pic-12.jpeg", "pic-13.jpeg", "pic-14.jpeg", "pic-15.jpeg", "pic-16.jpg"];
+var imagesArr = ["pic-12.jpeg", "pic-13.jpeg", "pic-15.jpeg", "pic-19.jpg", "pic-20.jpg", "pic-17.jpeg", "pic-16.jpg", "pic-14.jpeg", "pic-6.jpg", "pic-21.jpg"];
 var exactMatch = false;
 var inputVal = "";
 var birthdayPage = bodyWrapper.find("#birthdayPage");
 
+var populateImages = function() {
+  var imgResultsPage =  searchResultPage.find(".images-results");
+  var imgWrapperTemplate = imgResultsPage.find(".img-wrapper-template");
+  $.each(imagesArr, function (index, imgName) {
+      var imgDiv = imgWrapperTemplate.clone().removeClass("img-wrapper-template").addClass("img-wrapper").insertBefore(imgWrapperTemplate).show();
+      var imgPath = "./assets/" + imgName;
+      imgDiv.find(".imgElm")[0].src = imgPath;
+  });
+};
 
 if (window.screen.width < 600) {
   $(".mobileContent").show();
@@ -435,15 +444,9 @@ searchResultInput.on('keypress',function(e) {
     }
 });
 
-var populateImages = function() {
-    var imgResultsPage =  searchResultPage.find(".images-results");
-    var imgWrapperTemplate = imgResultsPage.find(".img-wrapper-template");
-    $.each(imagesArr, function (index, imgName) {
-        var imgDiv = imgWrapperTemplate.clone().removeClass("img-wrapper-template").addClass("img-wrapper").insertBefore(imgWrapperTemplate).show();
-        var imgPath = "./assets/" + imgName;
-        imgDiv.find(".imgElm")[0].src = imgPath;
-    });
-};
+
+
+populateImages();
 
 var showSearchResultsPage = function(inputVal) {
     searchResultInput.val(inputVal);
@@ -480,7 +483,7 @@ searchResultPage.find(".images").click(function() {
   showImages();
 });
 
-populateImages();
+
 
 
 /*****************************Mobile JS */
@@ -494,8 +497,8 @@ var mSearchResultInput = mSearchResultPage.find(".m-search-result-page-input");
 var mBirthdayPage = bodyWrapper.find("#m-birthdayPage");
 var mSearchResultsContentWrapper = mSearchResultPage.find(".m-searchResultsContentWrapper");
 var mSearchTabResults = mSearchResultPage.find(".m-search-tab-results");
-var leftImagesArr = ["pic-6.jpg", "pic-12.jpeg", "pic-13.jpeg", "pic-14.jpeg", "pic-15.jpeg"];
-var rightImagesArr = ["pic-17.jpeg", "pic-2.jpeg", "pic-3.jpg", "pic-4.jpeg", "pic-5.jpeg", "pic-16.jpg"];
+var leftImagesArr = ["pic-12.jpeg", "pic-13.jpeg", "pic-15.jpeg", "pic-19.jpg", "pic-20.jpg"];
+var rightImagesArr = ["pic-17.jpeg", "pic-16.jpg", "pic-14.jpeg", "pic-6.jpg", "pic-21.jpg"];
 
 $(".m-autocomplete-wrapper").width(mSearchForm.width());
 

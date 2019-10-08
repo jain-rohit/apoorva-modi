@@ -15,6 +15,7 @@ var imagesArr = ["pic-12.jpeg", "pic-13.jpeg", "pic-15.jpeg", "pic-19.jpg", "pic
 var exactMatch = false;
 var inputVal = "";
 var birthdayPage = bodyWrapper.find("#birthdayPage");
+var isTypeAheadActive = false;
 
 var populateImages = function() {
   var imgResultsPage =  searchResultPage.find(".images-results");
@@ -309,6 +310,7 @@ setTimeout(function() {
 };
 
 var startTypeAhead = function() {
+  isTypeAheadActive = true;
   var elements = document.getElementsByClassName('txt-rotate');
   for (var i=0; i<elements.length; i++) {
     var toRotate = elements[i].getAttribute('data-rotate');
@@ -350,9 +352,11 @@ var loadBirthdayPage = function() {
   playAudio();
   birthdayPage.show().siblings().hide();
   poof();
-  setTimeout(function() {
-    startTypeAhead();
-  }, 3000);
+  if (!isTypeAheadActive) {
+    setTimeout(function() {
+      startTypeAhead();
+    }, 3000); 
+  }
 };
 
 var showImages = function() {
@@ -369,7 +373,7 @@ searchResultPage.find(".birthday").click(function() {
 });
 
 searchResultPage.find("#result-page-logo").click(function() {
-  audioElm.pause();
+  // audioElm.pause();
   searchFormPage.find(".autocomplete-wrapper").hide();
   searchInput.val("");
   searchResultInput.val("");
@@ -440,7 +444,7 @@ searchInput.on('keyup',function(e) {
 
 searchResultInput.on('keypress',function(e) {
     if(e.which == 13) {
-      audioElm.pause();
+      // audioElm.pause();
       processSearchResponse(searchResultInput.val());
     }
 });
@@ -469,7 +473,7 @@ var showSearchResultsPage = function(inputVal) {
 };
 
 searchResultPage.find(".all").click(function() {
-    audioElm.pause();
+    // audioElm.pause();
     searchResultPage.find(".searchLoader-child").show().siblings().hide();
     setTimeout(function() {
       searchResultPage.find(".searchLoader-child").hide();
@@ -480,7 +484,7 @@ searchResultPage.find(".all").click(function() {
 });
 
 searchResultPage.find(".images").click(function() {
-  audioElm.pause();
+  // audioElm.pause();
   showImages();
 });
 
@@ -500,6 +504,7 @@ var mSearchResultsContentWrapper = mSearchResultPage.find(".m-searchResultsConte
 var mSearchTabResults = mSearchResultPage.find(".m-search-tab-results");
 var leftImagesArr = ["pic-12.jpeg", "pic-13.jpeg", "pic-15.jpeg", "pic-19.jpg", "pic-20.jpg"];
 var rightImagesArr = ["pic-17.jpeg", "pic-16.jpg", "pic-14.jpeg", "pic-6.jpg", "pic-21.jpg"];
+var isMTypeAheadActive = false;
 
 $(".m-autocomplete-wrapper").width(mSearchForm.width());
 
@@ -637,6 +642,7 @@ var mShowSearchResultsPage = function(inputVal) {
 };
 
 var mStartTypeAhead = function() {
+  isMTypeAheadActive = true;
   var elements = document.getElementsByClassName('m-txt-rotate');
   for (var i=0; i<elements.length; i++) {
     var toRotate = elements[i].getAttribute('data-rotate');
@@ -657,9 +663,11 @@ var mLoadBirthdayPage = function() {
   //containerElm.hide();
   mBirthdayPage.show().siblings().hide();
   poof();
-  setTimeout(function() {
-    mStartTypeAhead();
-  }, 3000);
+  if (!isMTypeAheadActive) {
+    setTimeout(function() {
+      mStartTypeAhead();
+    }, 3000); 
+  }
 };
 
 var mProcessSearchResponse = function(inputVal) {

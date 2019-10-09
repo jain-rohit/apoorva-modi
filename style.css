@@ -115,8 +115,8 @@ html,body {
 }
 
 .google-brand-img-big {
-  height: 92px;
-  width: 272px;
+  height: 108px;
+  width: 320px;
 }
 
 .google-brand-img-small {
@@ -664,11 +664,9 @@ form#tsf {
 }
 
 .m-search-result-brand-img {
-  background: url("https://www.google.com/images/nav_logo289_hr.webp") no-repeat;
-  background-position: 0 -374px;
-  background-size: 167px;
-  height: 36px;
-  width: 92px;
+  background: url("./assets/mobile-small-brand-img.jpg") no-repeat;
+  height: 43px;
+  width: 110px;
   margin: 0 auto;
 }
 

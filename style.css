@@ -371,10 +371,13 @@ html,body {
 .suggestions {
   background-color: #fff;
   margin: 15px 0 10px 0;
-  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
   border-radius: 8px;
   border-bottom: 1px hidden #fff;
   padding: 11px 16px 11px 16px;
+}
+
+.m-suggestions {
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
 }
 
 .suggestions ul li {

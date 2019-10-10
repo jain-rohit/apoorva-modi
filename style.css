@@ -951,7 +951,7 @@ h1.m-animated-txt {
 
 .m-images-results {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .birthday-wish-img, .m-birthday-wish-img {

@@ -267,6 +267,13 @@ $("#confettiId").click(function() {
 
 
 /*******************Typeahead JS************ */
+document.getElementById("golu").onplaying = function() {
+  console.log("The video is now playing");
+};
+
+searchResultPage.find(".video-content").click(function() {
+  console.log("Clicked on video");
+});
 
 var TxtRotate = function(el, toRotate, period) {
   this.toRotate = toRotate;
@@ -373,7 +380,6 @@ searchResultPage.find(".birthday").click(function() {
 });
 
 searchResultPage.find("#result-page-logo").click(function() {
-  // audioElm.pause();
   searchFormPage.find(".autocomplete-wrapper").hide();
   searchInput.val("");
   searchResultInput.val("");
@@ -557,6 +563,7 @@ mSearchResultPage.find(".m-birthday-date").click(function() {
 });
 
 mSearchResultPage.find(".m-search-result-brand-img").click(function() {
+  audioElm.pause();
   mSearchFormPage.find(".m-autocomplete-wrapper").hide();
   mSearchInput.val("");
   mSearchResultInput.val("");
@@ -566,6 +573,7 @@ mSearchResultPage.find(".m-search-result-brand-img").click(function() {
 
 mSearchResultInput.on('keypress',function(e) {
   if(e.which == 13) {
+    audioElm.pause();
     mProcessSearchResponse(mSearchResultInput.val());
   }
 });
@@ -680,6 +688,7 @@ var mProcessSearchResponse = function(inputVal) {
       exactMatch = false;
   }
   mShowSearchResultsPage(inputVal);
+  audioElm.pause();
 };
 
 mPopulateImages();

@@ -10,7 +10,7 @@ var searchButton = searchFormPage.find(".search-submit-btn");
 var birthdayWishBtn = searchFormPage.find(".birthdaywish-btn");
 var audioElm = document.getElementById("myAudio");
 audioElm.loop = true;
-var validSearchTerms = ["shraddha", "shraddha bhattad", "shraddhabhattad"];
+var validSearchTerms = ["Aayushi", "aayushi Jain", "aaysuhijain"];
 var imagesArr = ["pic-12.jpeg", "pic-15.jpeg", "pic-19.jpg", "pic-20.jpg", "pic-24.jpeg", "pic-17.jpeg", "pic-23.jpeg", "pic-14.jpeg", "pic-6.jpg", "pic-25.jpeg", "pic-21.jpg", "pic-22.jpeg", "pic-13.jpeg", "pic-26.jpeg", "pic-16.jpg"];
 var exactMatch = false;
 var inputVal = "";
@@ -362,7 +362,7 @@ var loadBirthdayPage = function() {
   if (!isTypeAheadActive) {
     setTimeout(function() {
       startTypeAhead();
-    }, 3000); 
+    }, 3000);
   }
 };
 
@@ -392,14 +392,14 @@ searchButton.click(function() {
 });
 
 var playAudio = function() {
-  var audioElm = document.getElementById("myAudio"); 
+  var audioElm = document.getElementById("myAudio");
   audioElm.play();
 };
 
 birthdayWishBtn.click(function() {
   searchFormPage.hide();
   searchResultPage.show();
-  searchResultInput.val("Shraddha Bhattad");
+  searchResultInput.val("Aayushi Jain");
   loadBirthdayPage();
 });
 
@@ -413,17 +413,17 @@ searchResultPage.find(".info1-wrapper").click(function() {
 
 
 searchResultPage.find(".suggested-txt").click(function() {
-    processSearchResponse("Shraddha Bhattad");
+    processSearchResponse("Aayushi Jain");
 });
 
 searchFormPage.find(".autocomplete-wrapper").click(function() {
-  processSearchResponse("shraddha");
+  processSearchResponse("aayushi");
 });
 
 searchInput.on('keypress',function(e) {
     if(e.which == 13) {
       var issuggestionSelected = searchFormPage.find(".autocomplete-wrapper").hasClass("suggestion-hover") ? true : false;
-      var searchValue = issuggestionSelected ? "Shraddha Bhattad" : searchInput.val();
+      var searchValue = issuggestionSelected ? "Aayushi Jain" : searchInput.val();
       processSearchResponse(searchValue);
     }
 });
@@ -470,7 +470,7 @@ var showSearchResultsPage = function(inputVal) {
         if (exactMatch) {
             searchResultPage.find(".searchResultsValidContentWrapper").show().siblings().hide();
             searchResultPage.find(".all").addClass("tab-selected").siblings().removeClass("tab-selected");
-            searchResultPage.find(".all-results").show().siblings().hide();   
+            searchResultPage.find(".all-results").show().siblings().hide();
         } else {
             searchResultPage.find(".searched-text").html(inputVal);
             searchResultPage.find(".searchResultsNotValidWrapper").show().siblings().hide();
@@ -486,7 +486,7 @@ searchResultPage.find(".all").click(function() {
       searchResultPage.find(".all").addClass("tab-selected").siblings().removeClass("tab-selected");
       searchResultPage.find(".all-results").show().siblings().hide();
     }, 500);
-    
+
 });
 
 searchResultPage.find(".images").click(function() {
@@ -519,7 +519,7 @@ mSearchFormPage.find(".m-search-submit-btn").click(function() {
 });
 
 mSearchFormPage.find(".m-autocomplete-wrapper").click(function() {
-  mProcessSearchResponse("Shraddha Bhattad");
+  mProcessSearchResponse("Aayushi Jain");
 });
 
 mSearchResultPage.find(".m-search-submit-btn").click(function() {
@@ -547,7 +547,7 @@ mSearchResultPage.find(".m-wiki-header-wrapper").click(function() {
 });
 
 mSearchResultPage.find(".m-suggested-txt").click(function() {
-  mProcessSearchResponse("Shraddha Bhattad");
+  mProcessSearchResponse("Aayushi Jain");
 });
 
 mSearchResultPage.find(".main-img-wrapper").click(function() {
@@ -627,7 +627,7 @@ var mShowImages = function() {
     mSearchResultPage.find(".m-images-results").show().siblings().hide();
     mSearchResultsContentWrapper.find(".made-with-love").show();
   }, 500);
-  
+
 };
 
 var mShowSearchResultsPage = function(inputVal) {
@@ -641,7 +641,7 @@ var mShowSearchResultsPage = function(inputVal) {
       if (exactMatch) {
           mSearchResultPage.find(".m-searchResultsValidContentWrapper").show().siblings().hide();
           mSearchResultPage.find(".all").addClass("m-tab-selected").siblings().removeClass("m-tab-selected");
-          mSearchResultPage.find(".m-all-results").show().siblings().hide();   
+          mSearchResultPage.find(".m-all-results").show().siblings().hide();
       } else {
           mSearchResultPage.find(".searched-text").html(inputVal);
           mSearchResultPage.find(".m-searchResultsNotValidWrapper").show().siblings().hide();
@@ -674,7 +674,7 @@ var mLoadBirthdayPage = function() {
   if (!isMTypeAheadActive) {
     setTimeout(function() {
       mStartTypeAhead();
-    }, 3000); 
+    }, 3000);
   }
 };
 

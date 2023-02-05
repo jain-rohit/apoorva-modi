@@ -508,8 +508,8 @@ var mSearchResultInput = mSearchResultPage.find(".m-search-result-page-input");
 var mBirthdayPage = bodyWrapper.find("#m-birthdayPage");
 var mSearchResultsContentWrapper = mSearchResultPage.find(".m-searchResultsContentWrapper");
 var mSearchTabResults = mSearchResultPage.find(".m-search-tab-results");
-var leftImagesArr = ["aa1.jpeg", "aa2.jpeg", "aa3.jpeg", "aa4.jpeg", "aa5.jpg", "aa6.jpg", "aa7.jpeg"];
-var rightImagesArr = ["aa1.jpeg", "aa2.jpeg", "aa3.jpeg", "aa4.jpeg", "aa5.jpg", "aa6.jpg", "aa7.jpeg"];
+var leftImagesArr = ["aa1.jpeg", "aa2.jpeg", "aa3.jpeg", "aa4.jpeg", "aa5.jpeg", "aa6.jpeg", "aa7.jpeg"];
+var rightImagesArr = ["aa1.jpeg", "aa2.jpeg", "aa3.jpeg", "aa4.jpeg", "aa5.jpeg", "aa6.jpeg", "aa7.jpeg"];
 var isMTypeAheadActive = false;
 
 $(".m-autocomplete-wrapper").width(mSearchForm.width());

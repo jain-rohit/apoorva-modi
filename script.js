@@ -10,8 +10,8 @@ var searchButton = searchFormPage.find(".search-submit-btn");
 var birthdayWishBtn = searchFormPage.find(".birthdaywish-btn");
 var audioElm = document.getElementById("myAudio");
 audioElm.loop = true;
-var validSearchTerms = ["aayushi", "aayushi jain", "aayushijain", "aayushi"];
-var imagesArr = ["aa1.jpeg", "aa2.jpeg", "aa3.jpeg", "aa4.jpeg", "aa5.jpeg", "aa6.jpeg", "aa7.jpeg"];
+var validSearchTerms = ["apoorva", "apoorva modi", "apoorvamodi", "apoorva"];
+var imagesArr = ["ap1.jpeg", "ap2.jpeg", "ap3.jpeg", "ap4.jpeg", "ap5.jpeg", "ap6.jpeg", "ap7.jpeg", "ap8.jpeg", "ap9.jpeg"];
 var exactMatch = false;
 var inputVal = "";
 var birthdayPage = bodyWrapper.find("#birthdayPage");
@@ -399,7 +399,7 @@ var playAudio = function() {
 birthdayWishBtn.click(function() {
   searchFormPage.hide();
   searchResultPage.show();
-  searchResultInput.val("Aayushi Jain");
+  searchResultInput.val("Apoorva Modi");
   loadBirthdayPage();
 });
 
@@ -413,17 +413,17 @@ searchResultPage.find(".info1-wrapper").click(function() {
 
 
 searchResultPage.find(".suggested-txt").click(function() {
-    processSearchResponse("Aayushi Jain");
+    processSearchResponse("Apoorva Modi");
 });
 
 searchFormPage.find(".autocomplete-wrapper").click(function() {
-  processSearchResponse("aayushi");
+  processSearchResponse("apoorva");
 });
 
 searchInput.on('keypress',function(e) {
     if(e.which == 13) {
       var issuggestionSelected = searchFormPage.find(".autocomplete-wrapper").hasClass("suggestion-hover") ? true : false;
-      var searchValue = issuggestionSelected ? "Aayushi Jain" : searchInput.val();
+      var searchValue = issuggestionSelected ? "Apoorva Modi" : searchInput.val();
       processSearchResponse(searchValue);
     }
 });
@@ -508,8 +508,8 @@ var mSearchResultInput = mSearchResultPage.find(".m-search-result-page-input");
 var mBirthdayPage = bodyWrapper.find("#m-birthdayPage");
 var mSearchResultsContentWrapper = mSearchResultPage.find(".m-searchResultsContentWrapper");
 var mSearchTabResults = mSearchResultPage.find(".m-search-tab-results");
-var leftImagesArr = ["aa1.jpeg", "aa2.jpeg", "aa3.jpeg", "aa4.jpeg", "aa5.jpeg", "aa6.jpeg", "aa7.jpeg"];
-var rightImagesArr = ["aa1.jpeg", "aa2.jpeg", "aa3.jpeg", "aa4.jpeg", "aa5.jpeg", "aa6.jpeg", "aa7.jpeg"];
+var leftImagesArr = ["ap1.jpeg", "ap2.jpeg", "ap3.jpeg", "ap4.jpeg", "ap5.jpeg", "ap6.jpeg", "ap7.jpeg", "ap8.jpeg", "ap9.jpeg"];
+var rightImagesArr = ["ap1.jpeg", "ap2.jpeg", "ap3.jpeg", "ap4.jpeg", "ap5.jpeg", "ap6.jpeg", "ap7.jpeg", "ap8.jpeg", "ap9.jpeg"];
 var isMTypeAheadActive = false;
 
 $(".m-autocomplete-wrapper").width(mSearchForm.width());
@@ -519,7 +519,7 @@ mSearchFormPage.find(".m-search-submit-btn").click(function() {
 });
 
 mSearchFormPage.find(".m-autocomplete-wrapper").click(function() {
-  mProcessSearchResponse("Aayushi Jain");
+  mProcessSearchResponse("Apoorva Modi");
 });
 
 mSearchResultPage.find(".m-search-submit-btn").click(function() {
@@ -547,7 +547,7 @@ mSearchResultPage.find(".m-wiki-header-wrapper").click(function() {
 });
 
 mSearchResultPage.find(".m-suggested-txt").click(function() {
-  mProcessSearchResponse("Aayushi Jain");
+  mProcessSearchResponse("Apoorva Modi");
 });
 
 mSearchResultPage.find(".main-img-wrapper").click(function() {
